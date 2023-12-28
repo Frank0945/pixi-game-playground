@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import * as PIXI from "pixi.js";
-import { Container, Sprite } from "react-pixi-fiber";
+import { _ReactPixi, Container, Sprite } from "@pixi/react";
 
 import bunnySprite from "./assets/bunny.png";
 
 const App = () => {
-  const [bunny, setBunny] = useState<Sprite>();
+  const [bunny, setBunny] = useState<_ReactPixi.ISprite>();
 
   useEffect(() => {
     setBunny({
@@ -16,7 +15,7 @@ const App = () => {
 
   return (
     <Container>
-      <Sprite texture={PIXI.Texture.from(bunnySprite)} y={82} {...bunny} />
+      <Sprite image={bunnySprite} y={82} {...bunny} />
     </Container>
   );
 };

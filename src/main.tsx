@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
+import { Stage } from "@pixi/react";
 import { Color } from "pixi.js";
 import { createRoot } from "react-dom/client";
-import { Stage } from "react-pixi-fiber";
 
 import "./style.css";
 
@@ -12,9 +12,10 @@ createRoot(document.getElementById("root")!).render(
     <Stage
       options={{
         backgroundColor: new Color({ r: 0, g: 0, b: 0 }).toArray(),
-        width: 1920,
-        height: 1080,
+        resizeTo: window,
       }}
+      width={window.innerWidth}
+      height={window.innerHeight}
     >
       <App />
     </Stage>
